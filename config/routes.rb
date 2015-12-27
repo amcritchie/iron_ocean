@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # match '', to: 'blogs#landing', constraints: {subdomain: 'blog'}
   get '', to: 'blogs#index', constraints: {subdomain: 'blog'}
+  get '', to: 'admin#index', constraints: {subdomain: 'admin'}
 
   # You can have the root of your site routed with "root"
   root 'iron_ocean#landing'
