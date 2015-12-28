@@ -3,14 +3,15 @@ class AdminController < ApplicationController
     if current_user
       if current_user.admin
         # Load admin
-        @a = 1
+        puts "-1"*40
+        puts @a = "Current user is an admin"
       else
         # Not admin, logout then login as admin
-        @a = 2
+        puts "-2"*40
+        puts @a = "Current user is not an admin"
       end
     else
-      # Login
-      @a = 3
+      redirect_to login_path
     end
   end
 end

@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  get "login" => "sessions#new", as: :login
+  post "login" => "sessions#create"
+  post "authenticate" => "sessions#authenticate"
+
+  resources :sessions
+
   # match '', to: 'blogs#landing', constraints: {subdomain: 'blog'}
   get '', to: 'blogs#index', constraints: {subdomain: 'blog'}
   get '', to: 'admin#index', constraints: {subdomain: 'admin'}

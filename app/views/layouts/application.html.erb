@@ -11,6 +11,12 @@
   <a href="http://lvh.me:3000/">Iron Ocean</a>
   <a href="http://blog.lvh.me:3000/">Blogs</a>
   <a href="http://admin.lvh.me:3000/">Admin</a>
+  
+  <% if current_user %>
+  <%= link_to "Log Out", session_path("current"), method: "delete" %>
+  <% else %>
+  <%= link_to "Login", new_session_path %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
