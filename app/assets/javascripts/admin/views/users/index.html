@@ -27,7 +27,8 @@
 
   <ul>
     <li ng-repeat="user in users">
-      {{user.first_name}} {{user.last_name}} | {{user.email}}
+      <input ng-model="user.first_name">{{user.first_name}} {{user.last_name}} | {{user.email}}
+      <a class="btn btn-info" ng-click="update(user)">Update</a>
     </li>
   </ul>
 </div>
