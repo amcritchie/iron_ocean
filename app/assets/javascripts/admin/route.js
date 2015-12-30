@@ -10,6 +10,21 @@ admin_app.config(function ($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  .state('users', {
+    url: '/users',
+    controller: 'UsersCtrl',
+    templateUrl: '/assets/admin/views/' + 'users/index.html'
+  })
+  .state('blogs', {
+    url: '/blogs',
+    controller: 'AdminCtrl',
+    templateUrl: '/assets/admin/views/' + 'blogs/index.html'
+  })
+  .state('articles', {
+    url: '/articles',
+    controller: 'AdminCtrl',
+    templateUrl: '/assets/admin/views/' + 'articles/index.html'
+  })
   // .state('login', {
   //   url: '/login',
   //   controller: 'SessionCtrl',

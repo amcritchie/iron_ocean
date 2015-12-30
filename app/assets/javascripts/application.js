@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require angular
+//= require angular-resource
 //= require angular-ui-router
 //= require init
 //= require turbolinks

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "authenticate" => "sessions#authenticate"
 
   resources :sessions
+  resources :users
 
   # match '', to: 'blogs#landing', constraints: {subdomain: 'blog'}
   get '', to: 'blogs#index', constraints: {subdomain: 'blog'}

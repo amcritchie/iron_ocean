@@ -17,9 +17,17 @@
         <li><a ui-sref="users">Users</a></li>
         <li><a ui-sref="blogs">Blogs</a></li>
       </ul>
-
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-ng Admin index.html
+
+<div class="container">
+  Admin NG Users index
+
+  <ul>
+    <li ng-repeat="user in users">
+      {{user.first_name}} {{user.last_name}} | {{user.email}}
+    </li>
+  </ul>
+</div>
