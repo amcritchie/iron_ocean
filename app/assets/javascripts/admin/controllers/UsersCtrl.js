@@ -1,8 +1,8 @@
-admin_app.controller("UsersCtrl", function($scope, $http, $location, $resource) {
+admin_app.controller('UsersCtrl', function($scope, $http, $location, $resource) {
 
   var auth_token = $('meta[name=csrf-token]').attr('content');
 
-  User = $resource("/users/:id", {id: this.id, auth_token: auth_token}, {'update': {method: "PUT"}});
+  User = $resource('/users/:id', {id: this.id, auth_token: auth_token}, {'update': {method: 'PUT'}});
   $scope.users = User.query();
 
   $scope.show = function(user){
@@ -13,7 +13,9 @@ admin_app.controller("UsersCtrl", function($scope, $http, $location, $resource) 
 
   }
   $scope.update = function(user){
-    User.update({ id: user.id }, user)
+    User.update({ id: user.id }, user, function(res) {
+      console.log('user updated');
+    })
   }
 
 });
