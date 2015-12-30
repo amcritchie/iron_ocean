@@ -13,7 +13,7 @@ admin_app.controller("UsersCtrl", function($scope, $http, $location, $resource) 
 
   }
   $scope.update = function(user){
-    User.update({ id: user.id }, user);
+    User.update({ id: user.id }, user)
   }
 
 });

@@ -14,7 +14,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    render json: User.update(params[:id], user_params)
+    @user = User.find(params[:id])
+    if @user == current_user || current_user.try(:admin)
+      if @user.update(user_params)
+        render json: @user
+      else
+        render json: @user
+      end
+    else
+      render json: {error: 'Not authed to update this user'}
+    end
   end
 
   def destroy
@@ -23,7 +32,7 @@ class UsersController < ApplicationController
 
   private
 
-def user_params
-  params.require(:user).permit(:first_name, :last_name, :email)
-end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email)
+  end
 end
