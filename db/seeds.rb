@@ -10,9 +10,8 @@
 
 # Create Admin User
 admin = User.create(
-first_name: 'iron', last_name: 'ocean', email: Figaro.env.admin_email,
-password: Figaro.env.admin_password, email_confirmed: true, active: true,
-last_active: nil,
+email: Figaro.env.admin_email, password: Figaro.env.admin_password, first_name: 'iron',
+last_name: 'ocean', email_confirmed: true, active: true, last_active: nil, time_zone: 'mst',
 image: Rails.root.join("app/assets/images/seed_images/iron_dragon.png").open
 )
 admin_address = admin.addresses.create(address: Figaro.env.admin_address, city: Figaro.env.admin_city, state: Figaro.env.admin_state, country: Figaro.env.admin_country, zip: Figaro.env.admin_zip, phone: Figaro.env.admin_phone)
@@ -27,16 +26,15 @@ Article.create(active: true, author_id: admin_author.id, blog_id: angular_answer
 Article.create(active: true, author_id: admin_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza')
 
 alex = User.create(
-first_name: 'Alex', last_name: 'McRitchie', email: Figaro.env.user_email,
-password: Figaro.env.user_password, email_confirmed: false, active: true,
-last_active: nil,
+email: Figaro.env.user_email, password: Figaro.env.user_password, first_name: 'Alex',
+last_name: 'McRitchie', email_confirmed: false, active: true, last_active: nil, time_zone: 'mst',
 image: Rails.root.join("app/assets/images/seed_images/alex_mcritchie_1.jpg").open
 )
 alex_address = alex.addresses.create(address: Figaro.env.user_address, city: Figaro.env.user_city, state: Figaro.env.user_state, country: Figaro.env.user_country, zip: Figaro.env.user_zip, phone: Figaro.env.user_phone)
 
 patrick = User.create(
-first_name: 'Patrick', last_name: 'Bateman', email: 'patrick@pierce.com',
-password: 'password1', email_confirmed: false, active: false, last_active: nil,
+email: 'patrick@pierce.com', password: 'password1', first_name: 'Patrick',
+last_name: 'Bateman', email_confirmed: false, active: false, last_active: nil, time_zone: 'est',
 image: Rails.root.join("app/assets/images/seed_images/patrick_bateman.jpg").open
 )
 patrick_address = alex.addresses.create(address: '358 exchange place', city: 'yew york', state: 'ny', country: 'usa', zip: Figaro.env.user_zip, phone: '2125556342')

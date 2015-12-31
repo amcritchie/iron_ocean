@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :image
       t.string :first_name
       t.string :last_name
+      t.string :time_zone
       t.string :password_reset_token
 
       t.boolean :email_confirmed, :default => false
