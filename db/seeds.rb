@@ -14,7 +14,7 @@ email: Figaro.env.admin_email, password: Figaro.env.admin_password, first_name: 
 last_name: 'ocean', email_confirmed: true, active: true, last_active: nil, time_zone: 'mst',
 image: Rails.root.join("app/assets/images/seed_images/iron_dragon.png").open
 )
-admin_address = admin.addresses.create(address: Figaro.env.admin_address, city: Figaro.env.admin_city, state: Figaro.env.admin_state, country: Figaro.env.admin_country, zip: Figaro.env.admin_zip, phone: Figaro.env.admin_phone)
+admin_address = admin.addresses.create(street: Figaro.env.admin_street, city: Figaro.env.admin_city, state: Figaro.env.admin_state, country: Figaro.env.admin_country, zip: Figaro.env.admin_zip, phone: Figaro.env.admin_phone)
 Admin.create(user_id: admin.id, name: 'standard')
 admin_author = Author.create(user_id: admin.id, name: 'standard')
 
@@ -30,14 +30,14 @@ email: Figaro.env.user_email, password: Figaro.env.user_password, first_name: 'A
 last_name: 'McRitchie', email_confirmed: false, active: true, last_active: nil, time_zone: 'mst',
 image: Rails.root.join("app/assets/images/seed_images/alex_mcritchie_1.jpg").open
 )
-alex_address = alex.addresses.create(address: Figaro.env.user_address, city: Figaro.env.user_city, state: Figaro.env.user_state, country: Figaro.env.user_country, zip: Figaro.env.user_zip, phone: Figaro.env.user_phone)
+alex_address = alex.addresses.create(street: Figaro.env.user_street, city: Figaro.env.user_city, state: Figaro.env.user_state, country: Figaro.env.user_country, zip: Figaro.env.user_zip, phone: Figaro.env.user_phone)
 
 patrick = User.create(
 email: 'patrick@pierce.com', password: 'password1', first_name: 'Patrick',
 last_name: 'Bateman', email_confirmed: false, active: false, last_active: nil, time_zone: 'est',
 image: Rails.root.join("app/assets/images/seed_images/patrick_bateman.jpg").open
 )
-patrick_address = alex.addresses.create(address: '358 exchange place', city: 'yew york', state: 'ny', country: 'usa', zip: Figaro.env.user_zip, phone: '2125556342')
+patrick_address = alex.addresses.create(street: '358 exchange place', city: 'yew york', state: 'ny', country: 'usa', zip: Figaro.env.user_zip, phone: '2125556342')
 
 
 # Message.create( sender_id: 1, receiver_id: 2, title: "Welcome to Iron Ocean",

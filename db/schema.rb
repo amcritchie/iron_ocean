@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20151224032804) do
     t.string   "image"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "time_zone"
     t.string   "password_reset_token"
     t.boolean  "email_confirmed",      default: false
     t.boolean  "active",               default: true

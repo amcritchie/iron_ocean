@@ -19,9 +19,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts "1____1"*30
+    puts params
+    puts "-"
+    puts params[:user]
+    puts "-"
+    puts params[:user][:address]
+    puts "-"
+    puts params[:address]
+    puts "2____2"*30
     @user = User.find(params[:id])
     if @user == current_user || current_user.try(:admin)
-      if @user.update(user_params)
+      if @user.update(user_params) && @user.address.update(params[:address])
         render json: @user
       else
         render json: @user
@@ -38,6 +47,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email)
+    # params.require(:user).permit(:first_name, :last_name, :email, :addresses_attributes)
+    params.require(:user).permit(:first_name, :last_name, :email, addresses_attributes: [ :street, :city ])
   end
 end

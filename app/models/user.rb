@@ -17,4 +17,6 @@ class User < ActiveRecord::Base
   def address
     self.try(:addresses).first
   end
+
+  accepts_nested_attributes_for :addresses
 end
