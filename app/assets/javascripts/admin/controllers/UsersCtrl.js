@@ -8,7 +8,9 @@ admin_app.controller('UsersCtrl', function($scope, $http, $location, $resource) 
   }
 
   $scope.edit = function(user){
-
+    User.get({ id: user.id}, function(res) {
+      $scope.user = res
+    });
   }
   $scope.update = function(user){
     User.update({ id: user.id }, user, function(res) {

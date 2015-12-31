@@ -7,16 +7,14 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:user][:email].downcase)
-
     if @user && @user.authenticate(params[:user][:password])
-      puts "auth success"
       session[:user_id] = @user.id
-      # render json: @user
-      redirect_to :back
-
+      if @user.admin
+        redirect_to admin_path
+      else
+        redirect_to blogs_path
+      end
     else
-      puts "auth fail"
-      # render json: {error: "Email / password is invalid."}
       redirect_to :back
     end
   end

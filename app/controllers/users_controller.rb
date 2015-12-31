@@ -6,7 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: User.find(params[:id])
+    @user = User.find(params[:id])
+    user = @user.as_json
+    user[:address] = @user.address
+    user[:author] = @user.author
+    user[:admin] = @user.admin
+    render json: user
   end
 
   def create

@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :users
 
   # match '', to: 'blogs#landing', constraints: {subdomain: 'blog'}
-  get '', to: 'blogs#index', constraints: {subdomain: 'blog'}
-  get '', to: 'admin#index', constraints: {subdomain: 'admin'}
+  get '', to: 'blogs#index', constraints: {subdomain: 'blog'}, as: :blogs
+  get '', to: 'admin#index', constraints: {subdomain: 'admin'}, as: :admin
 
   # You can have the root of your site routed with "root"
   root 'iron_ocean#landing'
