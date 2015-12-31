@@ -1,113 +1,41 @@
 <!-- Modal -->
 <div id="update_user_modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
+      <form ng-submit="update(user)" role="form">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit User</h4>
+        </div>
+        <div class="modal-body">
 
-        <h1>New Session</h1>
-
-        <%= form_for(:user, url: login_path) do |f| %>
-          <div>
-            email
-              <%= f.email_field :email, class: 'form-control' %>
+          <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a data-target="#user_details" data-toggle="tab">User</a>
+              </li>
+              <li>
+                <a data-target="#user_address" data-toggle="tab">Address</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="user_details">
+                <div ng-include="'/assets/admin/views/users/user_details.html'"></div>
+              </div>
+              <div class="tab-pane" id="user_address">
+                <div ng-include="'/assets/admin/views/users/user_address.html'"></div>
+              </div>
+            </div>
           </div>
-          <div>
-            password
-              <%= f.password_field :password, class: 'form-control' %>
-          </div>
-          <div>
-            <%= f.submit "log in", class: "btn btn-primary"  %>
-          </div>
-        <% end %>
+        </div>
 
-
-
-
-
-
-
-
-
-        <h3 class="col-md-12">User Details</h3>
-  <form ng-submit="update(user)">
-
-    <div class="form-group col-md-6">
-      <label for="first_name">Address:</label>
-      <input class="form-control" type="text" ng-model="user.address.street" name="user[address][street]">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="last_name">City:</label>
-      <input class="form-control" type="text" ng-model="user.address.city" name="user[address][city]">
-    </div>
-
-    <div class="form-group col-md-6">
-      <label for="first_name">First Name:</label>
-      <input class="form-control" type="text" ng-model="user.first_name" name="user[first_name]">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="last_name">Last Name:</label>
-      <input class="form-control" type="text" ng-model="user.last_name" name="user[last_name]">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="email">Email:</label>
-      <input class="form-control" type="text" ng-model="user.email" name="user[email]">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="password">Password:</label>
-      <input class="form-control" type="password" ng-model="user.password" name="user[password]">
-    </div>
-    <!-- <div class="form-group col-md-6">
-      <label for="language">Language:</label>
-      <input class="form-control" type="text" ng-model="user.language" name="user[language]">
-    </div> -->
-    <div class="form-group col-md-6">
-      <!-- <label for="language">Language:</label> -->
-      <label class="control-label">Profile Image</label>
-      <input class="form-control" type="file" ng-model="user.image.url" name="user[image]">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="time_zone">Time Zone:</label>
-      <select class="form-control" ng-model="user.time_zone" name="user[time_zone]">
-        <option value="pst">Pacific Standard Time</option>
-        <option value="mst">Mountain Standard Time</option>
-        <option value="cst">Central Standard Time</option>
-        <option value="est">Eastern Standard Time</option>
-      </select>
-    </div>
-
-    <!-- <h3 class="col-md-12">Client Details</h3>
-    <div class="form-group col-md-4">
-      <label for="email">Display Name:</label>
-      <input class="form-control" type="text" ng-model="client.display_name" ng-value="">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="email">Display Email:</label>
-      <input class="form-control" type="text" ng-model="client.display_email" ng-value="">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="email">Display Phone:</label>
-      <input class="form-control" type="text" ng-model="client.display_phone" ng-value="">
-    </div> -->
-
-    <div class="form-group col-md-12">
-      <input type="submit" value="Edit" class="btn btn-success">
-    </div>
-  </form>
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="modal-footer">
+          <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+          <input type="submit" value="Update" class="btn btn-success">
+        </form>
       </div>
     </div>
-
   </div>
 </div>
