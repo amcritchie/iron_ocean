@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+// For user edit btn on index table on admin/#/users, this is used to shrink the edit button so rows arn't so tall.
+.vertical-padding-0{
+  padding-top: 0;
+  padding-bottom: 0;
+}
