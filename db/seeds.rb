@@ -37,7 +37,7 @@ email: 'patrick@pierce.com', password: 'password1', first_name: 'Patrick',
 last_name: 'Bateman', email_confirmed: false, active: false, last_active: nil, time_zone: 'est',
 image: Rails.root.join("app/assets/images/seed_images/patrick_bateman.jpg").open
 )
-patrick_address = alex.addresses.create(street: '358 exchange place', city: 'yew york', state: 'ny', country: 'usa', zip: Figaro.env.user_zip, phone: '2125556342')
+patrick_address = patrick.addresses.create(street: '358 exchange place', city: 'new york', state: 'ny', country: 'usa', zip: '10022', phone: '2125556342')
 
 
 # Message.create( sender_id: 1, receiver_id: 2, title: "Welcome to Iron Ocean",
