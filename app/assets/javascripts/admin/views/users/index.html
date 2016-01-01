@@ -1,26 +1,108 @@
 <div ng-include="'/assets/admin/views/navbar.html'"></div>
 <div ng-include="'/assets/admin/views/users/edit_user.html'"></div>
+<div class="visible-xs">
+  Iphone
+</div>
+<div class="visible-sm">
+  Ipad
+</div>
+<div class="visible-md visible-lg">
+  Monitor
+</div>
 <div class="container">
   Admin NG Users index
 
-  <table class="table table-hover table-condensed">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat='user in users'>
-        <td>{{user.id}}</td>
-        <td>{{user.first_name}} {{user.last_name}}</td>
-        <td>{{user.email}}</td>
-        <td>
-          <a class="btn btn-info vertical-padding-0" ng-click="edit(user)" data-toggle="modal" data-target="#update_user_modal">Edit</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Mobile and Tablet layout -->
+  <div class="visible-xs visible-sm">
+    <table class="table table-hover table-condensed" >
+      <thead>
+        <tr>
+          <th>User</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr ng-repeat='user in users'>
+          <td>
+            {{user.id}} {{user.first_name}} {{user.last_name}}
+            <span ng-if="user.admin" style="color: #5cb85c">Admin</span><br>
+            {{user.email}}
+            <span class="vertical-padding-0">
+              <i ng-if="user.email_confirmed" class="fa fa-check-circle-o" style="color: #5cb85c;"></i>
+              <i ng-if="!user.email_confirmed" class="fa fa-times-circle-o" style="color: #d9534f;"></i>
+            </span>
+          </td>
+          <td>
+            <div class="pull-right visible-sm">
+              <a class="btn btn-info font-18 width-60" ng-click="edit(user)" data-toggle="modal" data-target="#update_user_modal">
+                <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+              <a ng-if="user.active" class="btn btn-success font-18 width-60" data-toggle="modal" data-target="#activate-user-modal">
+                <i class="fa fa-unlock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+              <a ng-if="!user.active" class="btn btn-danger font-18 width-60" data-toggle="modal" data-target="#deactivate-user-modal">
+                <i class="fa fa-lock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+            </div>
+            <div class="pull-right visible-xs">
+              <a class="btn btn-info font-18 width-40" ng-click="edit(user)" data-toggle="modal" data-target="#update_user_modal">
+                <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+              <a ng-if="user.active" class="btn btn-success font-18 width-40" data-toggle="modal" data-target="#activate-user-modal">
+                <i class="fa fa-unlock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+              <a ng-if="!user.active" class="btn btn-danger font-18 width-40" data-toggle="modal" data-target="#deactivate-user-modal">
+                <i class="fa fa-lock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Monitor layout -->
+  <div class="visible-md visible-lg">
+    <table class="table table-hover table-condensed" >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr ng-repeat='user in users'>
+          <td>
+            {{user.id}}
+          </td>
+          <td>
+            {{user.first_name}} {{user.last_name}}
+            <span ng-if="user.admin" style="color: #5cb85c">Admin</span>
+          </td>
+          <td>
+            {{user.email}}
+            <span class="vertical-padding-0">
+              <i ng-if="user.email_confirmed" class="fa fa-check-circle-o" style="color: #5cb85c;"></i>
+              <i ng-if="!user.email_confirmed" class="fa fa-times-circle-o" style="color: #d9534f;"></i>
+            </span>
+          </td>
+          <td>
+            <div class="pull-right">
+              <a class="btn btn-info width-60 vertical-padding-0" ng-click="edit(user)" data-toggle="modal" data-target="#update_user_modal">
+                <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+              <a ng-if="user.active" class="btn btn-success width-60 vertical-padding-0" data-toggle="modal" data-target="#activate-user-modal">
+                <i class="fa fa-unlock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+              <a ng-if="!user.active" class="btn btn-danger width-60 vertical-padding-0" data-toggle="modal" data-target="#deactivate-user-modal">
+                <i class="fa fa-lock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
