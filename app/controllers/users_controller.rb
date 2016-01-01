@@ -16,7 +16,31 @@ class UsersController < ApplicationController
   end
 
   def create
-    render json: User.create(params[:user])
+    @user = User.new(user_params)
+    @address = @user.addresses.new(address_params)
+    @user.password = user_params[:password_digest]
+    puts "="*100
+    puts user_params
+    puts user_params[:pass]
+    puts user_params[:password_digest]
+    puts "="*100
+    puts @user
+    puts "="*100
+
+    # if @user == current_user || current_user.try(:admin)
+      if @user.save && @address.save
+        puts "---1"*20
+        puts @user.errors
+        render json: {user: @user, messages: @user.errors}
+      else
+        puts "---2"*20
+        puts @user.errors
+        render json: {user: @user, messages: @user.errors}
+      end
+    # else
+    #   render json: {error: 'Not authed to update this user'}
+    # end
+    # render json: User.create(params[:user])
   end
 
   def update
@@ -39,7 +63,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :time_zone)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :pass, :password_digest, :time_zone)
   end
   def address_params
     params.require(:address).permit(:street, :city, :state, :country, :zip, :phone)

@@ -8,17 +8,17 @@ admin_app.controller('UsersCtrl', function($scope, $http, $location, $resource) 
   }
 
   $scope.new = function(user){
-    $scope.new_user = {}
+    $scope.user = {}
   }
 
   $scope.create = function(user){
-    User.create(user, function(res) {
-      debugger;
-      console.log('user created');
-    })
+    User.save(user, function(res) {
+      $scope.user = res
+    });
   }
-  
+
   $scope.edit = function(user){
+    // $scope.user = user
     User.get({ id: user.id}, function(res) {
       $scope.user = res
     });
