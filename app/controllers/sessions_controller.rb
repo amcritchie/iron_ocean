@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_filter :ensure_authenticated_user
 
   def new
+    redirect_to :back if current_user
     @user = User.new
   end
 
