@@ -14,6 +14,12 @@
 *= require_self
 */
 
+.green{background-color: green;}
+.blue{background-color: blue;}
+.yellow{background-color: yellow;}
+.red{background-color: red;}
+.orange{background-color: orange;}
+
 // For user edit btn on index table on admin/#/users, this is used to shrink the edit button so rows arn't so tall.
 .vertical-padding-0{
   padding-top: 0;
@@ -41,4 +47,9 @@
 }
 .width-60{
   width: 60px;
+}
+
+// Used on header of index page so search bar and new button are on level with header
+.margin-top-20{
+  margin-top: 20px;
 }

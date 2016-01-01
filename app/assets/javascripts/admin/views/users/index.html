@@ -1,19 +1,39 @@
 <div ng-include="'/assets/admin/views/navbar.html'"></div>
+<div ng-include="'/assets/admin/views/users/new_user.html'"></div>
 <div ng-include="'/assets/admin/views/users/edit_user.html'"></div>
-<div class="visible-xs">
-  Iphone
-</div>
-<div class="visible-sm">
-  Ipad
-</div>
-<div class="visible-md visible-lg">
-  Monitor
-</div>
-<div class="container">
-  Admin NG Users index
 
-  <!-- Mobile and Tablet layout -->
-  <div class="visible-xs visible-sm">
+<div class="container">
+
+  <!-- User Header -->
+  <div class="col-md-6 col-sm-3 col-xs-6">
+    <h1>Users</h1>
+  </div>
+  <div class="col-lg-3 col-md-2 col-sm-4 col-xs-6">
+    <a class="btn btn-success margin-top-20 pull-right" ng-click="new()" data-toggle="modal" data-target="#new_user_modal">New User</a>
+  </div>
+  <div class="col-xs-12 visible-xs">
+    <form class="default pull-right" role="search">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Search Users" autofocus ng-model="search_user">
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-5 hidden-xs">
+    <form class="default margin-top-20 pull-right" role="search">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Search Users" autofocus ng-model="search_user">
+      </div>
+    </form>
+  </div>
+
+  <!-- User Index - Mobile and Tablet layout -->
+  <div class="visible-xs visible-sm col-xs-12">
     <table class="table table-hover table-condensed" >
       <thead>
         <tr>
@@ -34,7 +54,7 @@
           </td>
           <td>
             <div class="pull-right visible-sm">
-              <a class="btn btn-info font-18 width-60" ng-click="edit(user)" data-toggle="modal" data-target="#update_user_modal">
+              <a class="btn btn-info font-18 width-60" ng-click="edit(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="user.active" class="btn btn-success font-18 width-60" data-toggle="modal" data-target="#activate-user-modal">
@@ -45,7 +65,7 @@
               </a>
             </div>
             <div class="pull-right visible-xs">
-              <a class="btn btn-info font-18 width-40" ng-click="edit(user)" data-toggle="modal" data-target="#update_user_modal">
+              <a class="btn btn-info font-18 width-40" ng-click="edit(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="user.active" class="btn btn-success font-18 width-40" data-toggle="modal" data-target="#activate-user-modal">
@@ -61,8 +81,8 @@
     </table>
   </div>
 
-  <!-- Monitor layout -->
-  <div class="visible-md visible-lg">
+  <!-- User Index - Monitor layout -->
+  <div class="visible-md visible-lg col-md-12">
     <table class="table table-hover table-condensed" >
       <thead>
         <tr>
@@ -90,7 +110,7 @@
           </td>
           <td>
             <div class="pull-right">
-              <a class="btn btn-info width-60 vertical-padding-0" ng-click="edit(user)" data-toggle="modal" data-target="#update_user_modal">
+              <a class="btn btn-info width-60 vertical-padding-0" ng-click="edit(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="user.active" class="btn btn-success width-60 vertical-padding-0" data-toggle="modal" data-target="#activate-user-modal">

@@ -1,30 +1,30 @@
 <!-- Modal -->
-<div id="edit_user_modal" class="modal fade" role="dialog">
+<div id="new_user_modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-      <form ng-submit="update(user)" role="form">
+      <form ng-submit="create(user)" role="form">
 
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit User</h4>
+          <h4 class="modal-title">New User</h4>
         </div>
         <div class="modal-body">
 
           <div class="tabbable"> <!-- Only required for left/right tabs -->
             <ul class="nav nav-tabs">
               <li class="active">
-                <a data-target="#edit_user_details" data-toggle="tab">User</a>
+                <a data-target="#new_user_details" data-toggle="tab">User</a>
               </li>
               <li>
-                <a data-target="#edit_user_address" data-toggle="tab">Address</a>
+                <a data-target="#new_user_address" data-toggle="tab">Address</a>
               </li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane active" id="edit_user_details">
+              <div class="tab-pane active" id="new_user_details">
                 <div ng-include="'/assets/admin/views/users/user_details.html'"></div>
               </div>
-              <div class="tab-pane" id="edit_user_address">
+              <div class="tab-pane" id="new_user_address">
                 <div ng-include="'/assets/admin/views/users/user_address.html'"></div>
               </div>
             </div>
