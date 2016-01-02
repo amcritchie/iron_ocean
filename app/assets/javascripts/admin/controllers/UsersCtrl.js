@@ -1,6 +1,7 @@
 admin_app.controller('UsersCtrl', function($scope, $http, $location, $resource) {
 
-  User = $resource('/users/:id', {id: this.id}, {'update': {method: 'PUT'}});
+  var User = $resource('/users/:id', {id: this.id}, {'update': {method: 'PUT'}});
+
   $scope.users = User.query();
 
   $scope.show = function(user){
@@ -18,13 +19,14 @@ admin_app.controller('UsersCtrl', function($scope, $http, $location, $resource) 
   }
 
   $scope.edit = function(user){
-    // $scope.user = user
     User.get({ id: user.id}, function(res) {
+      res.image = res.image.url
       $scope.user = res
     });
   }
   $scope.update = function(user){
     User.update({ id: user.id }, user, function(res) {
+      debugger;
       console.log('user updated');
     })
   }

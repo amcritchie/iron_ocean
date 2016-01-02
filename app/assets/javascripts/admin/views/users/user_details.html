@@ -5,20 +5,20 @@
   </div>
   <div class="form-group col-sm-6">
     <label for="last_name">Last Name:</label>
-    <input class="form-control" type="text" ng-model="user.last_name" name="user[last_name]" placeholder="Bateman">
+    <input class="form-control" type="text" ng-model="user.glast_name" name="user[last_name]" placeholder="Bateman">
   </div>
   <div class="form-group col-sm-6">
     <label for="email">Email:</label>
-    <input class="form-control" type="text" ng-model="user.email" name="user[email]" placeholder="patrick@pierce.com">
+    <input class="form-control" type="text" ng-model="user.email" name="userg[email]" placeholder="patrick@pierce.com">
   </div>
   <div class="form-group col-sm-6">
     <label for="password">Password:</label>
-    <input class="form-control" type="text" ng-model="user.password" name="user[password]" placeholder="*********">
+    <input class="form-control" type="text" ng-model="user.password" name="userg[password]" placeholder="*********">
   </div>
-  <!-- <div class="form-group col-sm-6">
-    <label for="password_digest">password_digest:</label>
-    <input class="form-control" type="text" ng-model="user.password_digest" name="user[password_digest]" placeholder="*********">
-  </div> -->
+  <div class="form-group col-sm-6">
+    <label for="image">Image:</label>
+    <input class="form-control" type="file" fileread="user.image" ng-model="user.image" name="user[image]">
+  </div>
 
   <div class="form-group col-sm-6">
     <label for="time_zone">Time Zone:</label>
