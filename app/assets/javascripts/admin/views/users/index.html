@@ -45,7 +45,7 @@
           <td>
             {{user.id}} {{user.first_name}} {{user.last_name}}
             <span ng-if="user.admin" style="color: #5cb85c">Admin</span>
-            <img class="pull-left visible-sm" height="40" width="40" src="{{user.image.url}}">
+            <img class="pull-left visible-sm" height="40" width="40" ng-src="{{user.image.url}}">
 
             <br>
             {{user.email}}
@@ -100,7 +100,7 @@
             {{user.id}}
           </td>
           <td>
-            <img height="20" width="20" src="{{user.image.url}}">
+            <img height="20" width="20" ng-src="{{user.image.url}}">
             {{user.first_name}} {{user.last_name}}
             <span ng-if="user.admin" style="color: #5cb85c">Admin</span>
           </td>
