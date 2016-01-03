@@ -1,13 +1,11 @@
-admin_app.controller('UsersCtrl', ['$scope', '$http', '$location', '$resource', 'userService',
-  function($scope, $http, $location, $resource, userService) {
+admin_app.controller('UsersCtrl', ['$scope', '$resource', 'userService', 'sharedService',
+  function($scope, $resource, userService, sharedService) {
 
   var User = $resource('/users/:id', {id: this.id}, {'update': {method: 'PUT'}});
 
   $scope.users = User.query();
-  debugger;
 
   $scope.show = function(user){
-
   }
 
   $scope.new = function(user){
@@ -22,16 +20,12 @@ admin_app.controller('UsersCtrl', ['$scope', '$http', '$location', '$resource', 
   }
 
   $scope.edit = function(user){
-    User.get({ id: user.id}, function(res) {
-      res.image = res.image.url
-      $scope.user = res
-    });
+    $scope.user = user;
   }
 
   $scope.update = function(user){
     userService.update(user, function(res) {
-      // debugger;
-
+      sharedService.update_resource(res.user, $scope.user)
       $('.modal').modal('hide');
     })
   }
