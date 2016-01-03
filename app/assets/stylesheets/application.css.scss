@@ -53,3 +53,13 @@
 .margin-top-20{
   margin-top: 20px;
 }
+
+// For modal error messages
+.error-message{
+  border-radius: 7px;
+  font-size: 12px;
+  background-color: red;
+  color: white;
+  padding: 3px 8px;
+
+}

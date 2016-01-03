@@ -10,9 +10,13 @@ class User < ActiveRecord::Base
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'receiver_id'
   mount_uploader :image, ImageUploader
 
-
-  # validates :email, presence: true
-  # validates :password, length: { in: 6..20 }
+  validates :email, presence: true, uniqueness: true
+  # Password create validation
+  validates :password, :on => :create, :presence => true,
+  :confirmation => true, :length => {:within => 6..40}
+  # Password update validation
+  validates :password, :on => :update, :allow_blank => true,
+  :confirmation => true, :length => {:within => 6..40}
 
   def address
     self.try(:addresses).first

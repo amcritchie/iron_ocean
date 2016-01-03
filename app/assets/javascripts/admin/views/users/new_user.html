@@ -1,8 +1,8 @@
 <div id="new_user_modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-    <form ng-submit="create(user)" role="form">
+    <form id="new_user_form" ng-submit="create(user)" role="form">
       <div class="modal-content">
-        
+
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">New User</h4>
@@ -30,7 +30,10 @@
 
         <div class="modal-footer">
           <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
-          <input type="submit" value="Create" class="btn btn-success">
+          <input type="submit" value="Create" class="standard-view btn btn-success">
+          <a class="waiting-view btn btn-success">
+            <i class="fa fa-spinner fa-spin fa-1x"></i>
+          </a>
         </form>
       </div>
     </div>
