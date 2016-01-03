@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :sessions
   resources :users
+  post "users/:id/activate" => "users#activate"
+  post "users/:id/deactivate" => "users#deactivate"
 
   # match '', to: 'blogs#landing', constraints: {subdomain: 'blog'}
   get '', to: 'blogs#index', constraints: {subdomain: 'blog'}, as: :blogs

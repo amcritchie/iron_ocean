@@ -1,5 +1,7 @@
 <div ng-include="'/assets/admin/views/users/new_user.html'"></div>
 <div ng-include="'/assets/admin/views/users/edit_user.html'"></div>
+<div ng-include="'/assets/admin/views/users/activate_user.html'"></div>
+<div ng-include="'/assets/admin/views/users/deactivate_user.html'"></div>
 
 <div class="container">
 
@@ -56,24 +58,24 @@
           </td>
           <td>
             <div class="pull-right visible-sm">
-              <a class="btn btn-info font-18 width-60" ng-click="edit(user)" data-toggle="modal" data-target="#edit_user_modal">
+              <a class="btn btn-info font-18 width-60" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
-              <a ng-if="user.active" class="btn btn-success font-18 width-60" data-toggle="modal" data-target="#activate-user-modal">
+              <a ng-if="user.active" class="btn btn-success font-18 width-60" ng-click="target(user)" data-toggle="modal" data-target="#deactivate_user_modal">
                 <i class="fa fa-unlock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
-              <a ng-if="!user.active" class="btn btn-danger font-18 width-60" data-toggle="modal" data-target="#deactivate-user-modal">
+              <a ng-if="!user.active" class="btn btn-danger font-18 width-60" ng-click="target(user)" data-toggle="modal" data-target="#activate_user_modal">
                 <i class="fa fa-lock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
             </div>
             <div class="pull-right visible-xs">
-              <a class="btn btn-info font-18 width-40" ng-click="edit(user)" data-toggle="modal" data-target="#edit_user_modal">
+              <a class="btn btn-info font-18 width-40" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
-              <a ng-if="user.active" class="btn btn-success font-18 width-40" data-toggle="modal" data-target="#activate-user-modal">
+              <a ng-if="user.active" class="btn btn-success font-18 width-40" ng-click="target(user)" data-toggle="modal" data-target="#deactivate_user_modal">
                 <i class="fa fa-unlock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
-              <a ng-if="!user.active" class="btn btn-danger font-18 width-40" data-toggle="modal" data-target="#deactivate-user-modal">
+              <a ng-if="!user.active" class="btn btn-danger font-18 width-40" ng-click="target(user)" data-toggle="modal" data-target="#activate_user_modal">
                 <i class="fa fa-lock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
             </div>
@@ -113,13 +115,13 @@
           </td>
           <td>
             <div class="pull-right">
-              <a class="btn btn-info width-60 vertical-padding-0" ng-click="edit(user)" data-toggle="modal" data-target="#edit_user_modal">
+              <a class="btn btn-info width-60 vertical-padding-0" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
-              <a ng-if="user.active" class="btn btn-success width-60 vertical-padding-0" data-toggle="modal" data-target="#activate-user-modal">
+              <a ng-if="user.active" class="btn btn-success width-60 vertical-padding-0" ng-click="target(user)" data-toggle="modal" data-target="#deactivate_user_modal">
                 <i class="fa fa-unlock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
-              <a ng-if="!user.active" class="btn btn-danger width-60 vertical-padding-0" data-toggle="modal" data-target="#deactivate-user-modal">
+              <a ng-if="!user.active" class="btn btn-danger width-60 vertical-padding-0" ng-click="target(user)" data-toggle="modal" data-target="#activate_user_modal">
                 <i class="fa fa-lock fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
             </div>

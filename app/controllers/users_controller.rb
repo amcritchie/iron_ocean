@@ -49,6 +49,23 @@ class UsersController < ApplicationController
     render json: User.destroy(params[:id])
   end
 
+  def resend_confirmation_email
+    @user = User.find(params[:id])
+    render json: {user: @user, status: 200}
+  end
+
+  def activate
+    @user = User.find(params[:id])
+    @user.update(active: true)
+    render json: {user: @user, status: 200}
+  end
+
+  def deactivate
+    @user = User.find(params[:id])
+    @user.update(active: false)
+    render json: {user: @user, status: 200}
+  end
+
   private
 
   def user_params
