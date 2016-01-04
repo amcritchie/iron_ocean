@@ -1,10 +1,11 @@
-admin_app.controller('UsersCtrl', ['$scope', '$resource', 'userService', 'sharedService',
-function($scope, $resource, userService, sharedService) {
+admin_app.controller('UsersCtrl', ['$scope', '$resource', 'userService', 'sharedService', 'usersResponce',
+function($scope, $resource, userService, sharedService, usersResponce) {
 
   var User = $resource('/users/:id', {id: this.id}, {'update': {method: 'PUT'}});
 
-  $scope.users = User.query();
-  
+  $('#loading-spinner').hide();
+  $scope.users = usersResponce.data.users
+
   $scope.show = function(user){
   }
 

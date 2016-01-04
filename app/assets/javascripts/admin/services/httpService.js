@@ -6,6 +6,14 @@ function($http) {
     headers: {'Content-Type': undefined}
   };
 
+  this.get = function(url, data, callback) {
+    return $http.get(url, data, this.rails_config)
+    .success(callback)
+    .error(function(res){
+      alert('Error from http request -> ' + res);
+    });
+  }
+
   this.post = function(url, data, callback) {
     return $http.post(url, data, this.rails_config)
     .success(callback)

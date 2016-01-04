@@ -1,5 +1,13 @@
-admin_app.service('userService', ['httpService', 'formService',
-function(httpService, formService) {
+admin_app.service('userService', ['$q', 'httpService', 'formService',
+function($q, httpService, formService) {
+
+  this.index = function() {
+    var defer = $q.defer();
+    return httpService.get('/users', {}, function(res) {
+      defer.resolve(res);
+    });
+    return defer.promise;
+  }
 
   this.create =function(callback) {
 
@@ -13,8 +21,8 @@ function(httpService, formService) {
       } else {
         formService.append_errors($('#new_user_form'), res.errors)
       }
-    }
-  )}
+    });
+  }
 
   this.update =function(user, callback) {
 

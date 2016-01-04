@@ -13,7 +13,13 @@ admin_app.config(function ($stateProvider, $urlRouterProvider) {
   .state('users', {
     url: '/users',
     controller: 'UsersCtrl',
-    templateUrl: '/assets/admin/views/' + 'users/index.html'
+    templateUrl: '/assets/admin/views/' + 'users/index.html',
+    resolve: {
+      usersResponce: function(userService) {
+        $('#loading-spinner').show();
+        return userService.index()
+      }
+    }
   })
   .state('blogs', {
     url: '/blogs',

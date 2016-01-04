@@ -1,5 +1,11 @@
 <div ng-app="Admin">
 
+  <div id="loading-spinner" class="wrap">
+    <div class="margin-top-100">
+      <i class="fa fa-spinner fa-spin fa-5x"></i>
+    </div>
+  </div>
+  
   <!-- Navbar -->
   <nav class="navbar header navbar-default">
     <div class="container-fluid">
@@ -20,9 +26,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <% if current_user %>
-              <%= link_to "Log Out", session_path("current"), method: "delete" %>
+            <%= link_to "Log Out", session_path("current"), method: "delete" %>
             <% else %>
-              <%= link_to "Login", new_session_path %>
+            <%= link_to "Login", new_session_path %>
             <% end %>
           </li>
         </ul>

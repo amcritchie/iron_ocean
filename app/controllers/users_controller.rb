@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   respond_to :json
 
   def index
-    # render json: User.all
-    render json: User.all.map(&:index)
+    render json: {users: User.all.map(&:index), status: 200}
   end
 
   def show
