@@ -53,9 +53,10 @@ class UsersController < ApplicationController
     render json: {user: @user, status: 200}
   end
 
-  def activate
+  def reactivate
     @user = User.find(params[:id])
     @user.update(active: true)
+    UserMailer.account_reactivation(@user).deliver
     render json: {user: @user, status: 200}
   end
 

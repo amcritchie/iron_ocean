@@ -42,9 +42,9 @@ function($q, httpService, formService) {
   }
 
   this.activate = function(user, callback) {
-    formService.loading_begin($('#activate_user_form'));
-    httpService.post('/users/' + user.id + '/activate' , {}, function(res) {
-      formService.loading_finished($('#activate_user_form'));
+    formService.loading_begin($('#reactivate_user_form'));
+    httpService.post('/users/' + user.id + '/reactivate' , {}, function(res) {
+      formService.loading_finished($('#reactivate_user_form'));
       callback(res);
     });
   }
