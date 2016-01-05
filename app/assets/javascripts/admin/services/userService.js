@@ -28,6 +28,8 @@ function($q, httpService, formService) {
 
     formService.loading_begin($('#edit_user_form'));
     var form_data = new FormData($('#edit_user_form')[0]);
+    console.log(form_data);
+    console.log(typeof form_data);
 
     httpService.put('/users/' + user.id, form_data, function(res) {
       formService.loading_finished($('#edit_user_form'));
@@ -48,8 +50,12 @@ function($q, httpService, formService) {
   }
 
   this.deactivate = function(user, message, callback) {
+
+    var form_data = new FormData();
+    form_data.append('message', message);
+
     formService.loading_begin($('#deactivate_user_form'));
-    httpService.post('/users/' + user.id + '/deactivate' , {message: message}, function(res) {
+    httpService.post('/users/' + user.id + '/deactivate' , form_data, function(res) {
       formService.loading_finished($('#deactivate_user_form'));
       callback(res);
     });

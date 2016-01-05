@@ -62,6 +62,7 @@ class UsersController < ApplicationController
   def deactivate
     @user = User.find(params[:id])
     @user.update(active: false)
+    UserMailer.account_deactivation(@user, params[:message]).deliver
     render json: {user: @user, status: 200}
   end
 

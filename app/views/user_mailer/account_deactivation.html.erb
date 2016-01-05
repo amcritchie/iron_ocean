@@ -1,0 +1,14 @@
+<h2>Hello <%= @user.first_name.capitalize %>,</h2>
+<p>
+  Your account with <a href="ironocean.io">Iron Ocean</a> has been disabled.
+
+  <% if !@message.empty? %>
+    <h4>Notes</h4>
+    <i><%= @message %></i>
+  <% end %>
+
+  <br><br>
+  Thank you for your time,
+  <br><br>
+  IO Team
+</p>

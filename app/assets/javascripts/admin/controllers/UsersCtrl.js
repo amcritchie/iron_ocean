@@ -39,8 +39,8 @@ function($scope, $resource, userService, sharedService, usersResponce) {
     })
   }
 
-  $scope.deactivate = function(user, message){
-    userService.deactivate(user, message, function(res) {
+  $scope.deactivate = function(user){
+    userService.deactivate(user, user.message, function(res) {
       $('.modal').modal('hide');
       $scope.user.active = false;
     })
