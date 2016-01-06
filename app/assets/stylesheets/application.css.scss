@@ -88,3 +88,8 @@
     margin-top: 200px;
   }
 }
+
+// Used for hidden inputs, specifically the nested models like addresses which need an id field to update.
+.hidden{
+  display: none;
+}

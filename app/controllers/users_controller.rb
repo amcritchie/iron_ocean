@@ -20,9 +20,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user == current_user || current_user.try(:admin)
       if @user.save
-        render json: {user: @user, status: 200}
+        render json: {user: @user.index, status: 200}
       else
-        render json: {user: @user, errors: @user.errors.messages}
+        render json: {user: @user.index, errors: @user.errors.messages}
       end
     else
       render json: {error: 'Not authed to update this user'}
@@ -34,10 +34,9 @@ class UsersController < ApplicationController
 
     if @user == current_user || current_user.try(:admin)
       if @user.update(user_params)
-        # if @user.update(user_params) && @user.address.update(address_params)
-        render json: {user: @user, status: 200}
+        render json: {user: @user.index, status: 200}
       else
-        render json: {user: @user, errors: @user.errors.messages}
+        render json: {user: @user.index, errors: @user.errors.messages}
       end
     else
       render json: {error: 'Not authed to update this user'}
@@ -56,23 +55,21 @@ class UsersController < ApplicationController
   def reactivate
     @user = User.find(params[:id])
     @user.update(active: true)
-    UserMailer.account_reactivation(@user).deliver
+    # UserMailer.account_reactivation(@user).deliver
     render json: {user: @user, status: 200}
   end
 
   def deactivate
     @user = User.find(params[:id])
     @user.update(active: false)
-    UserMailer.account_deactivation(@user, params[:message]).deliver
+    # UserMailer.account_deactivation(@user, params[:message]).deliver
     render json: {user: @user, status: 200}
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :time_zone)
-  end
-  def address_params
-    params.require(:address).permit(:street, :city, :state, :country, :zip, :phone)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :time_zone,
+    addresses_attributes: [:id, :street, :zip, :phone])
   end
 end

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_one :author
 
   has_many :addresses, as: :addressable
+  accepts_nested_attributes_for :addresses
 
   has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id'
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'receiver_id'
@@ -25,8 +26,7 @@ class User < ActiveRecord::Base
   def index
     hash = self.as_json
     hash[:admin] = self.admin
+    hash[:address] = self.address
     hash
   end
-
-  accepts_nested_attributes_for :addresses
 end
