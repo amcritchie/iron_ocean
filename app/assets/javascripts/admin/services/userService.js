@@ -31,6 +31,7 @@ function($q, httpService, formService) {
 
     httpService.put('/users/' + user.id, form_data, function(res) {
       formService.loading_finished($('#edit_user_form'));
+      formService.success_message($('#edit_user_form'));
       if (res.status === 200) {
         callback(res);
       } else {

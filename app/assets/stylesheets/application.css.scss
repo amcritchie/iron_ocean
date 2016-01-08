@@ -10,6 +10,7 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
+*= require animate
 *= require_tree .
 *= require_self
 */
@@ -87,4 +88,9 @@
     font-size: 25px;
     margin-top: 200px;
   }
+}
+
+// Used by alert messages which need to start hidden
+.hide-normal {
+    display: none;
 }

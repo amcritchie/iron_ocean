@@ -25,4 +25,11 @@ admin_app.service('formService', [function() {
     }
   }
 
+  this.success_message = function(message) {
+    $('.alert-success').fadeIn()
+    setTimeout(function() {
+      $('.alert-success').fadeOut()
+    },2000);
+  }
+
 }]);

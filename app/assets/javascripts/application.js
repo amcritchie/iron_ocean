@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap-notify
 //= require angular
 //= require angular-resource
 //= require angular-ui-router
