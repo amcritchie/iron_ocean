@@ -1,4 +1,4 @@
-admin_app.service('formService', [function() {
+admin_app.service('form', [function() {
 
   this.loading_begin = function($form) {
     $form.find('[type="submit"]').hide();
@@ -25,11 +25,23 @@ admin_app.service('formService', [function() {
     }
   }
 
-  this.success_message = function(message) {
-    $('.alert-success').fadeIn()
-    setTimeout(function() {
-      $('.alert-success').fadeOut()
-    },2000);
+  function default_growl(type) {
+    return {
+      ele: 'body', // which element to append to
+      type: type, // (null, 'info', 'danger', 'success')
+      offset: {from: 'bottom', amount: 20}, // 'top', or 'bottom'
+      align: 'right', // ('left', 'right', or 'center')
+      width: 250, // (integer, or 'auto')
+      delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+      allow_dismiss: true, // If true then will display a cross to close the popup.
+      stackup_spacing: 10 // spacing between consecutively stacked growls.
+    }
+  }
+
+  this.growl = function(type, message) {
+    types = [null, 'info', 'danger', 'success']
+    type = (types.indexOf(type) > -1) ? type : 'success';
+    $.bootstrapGrowl(message, default_growl(type));
   }
 
 }]);
