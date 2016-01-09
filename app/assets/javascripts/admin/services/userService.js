@@ -31,7 +31,17 @@ function($q, httpService, formService) {
 
     httpService.put('/users/' + user.id, form_data, function(res) {
       formService.loading_finished($('#edit_user_form'));
-      formService.success_message($('#edit_user_form'));
+      $.bootstrapGrowl("User Updated.", {
+        ele: 'body', // which element to append to
+        type: 'success', // (null, 'info', 'danger', 'success')
+        offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+        align: 'right', // ('left', 'right', or 'center')
+        width: 250, // (integer, or 'auto')
+        delay: 4000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+        allow_dismiss: true, // If true then will display a cross to close the popup.
+        stackup_spacing: 10 // spacing between consecutively stacked growls.
+      });
+
       if (res.status === 200) {
         callback(res);
       } else {

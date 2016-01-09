@@ -1,6 +1,5 @@
-admin_app.controller('UsersCtrl', ['$scope', '$resource', 'userService', 'sharedService', 'usersResponce', 'growl',
-function($scope, $resource, userService, sharedService, usersResponce, growl) {
-  growl.warning("This adds a warn message");
+admin_app.controller('UsersCtrl', ['$scope', '$resource', 'userService', 'sharedService', 'usersResponce',
+function($scope, $resource, userService, sharedService, usersResponce) {
   var User = $resource('/users/:id', {id: this.id}, {'update': {method: 'PUT'}});
 
   $('#loading-spinner').hide();

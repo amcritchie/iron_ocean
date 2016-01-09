@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require lib/jquery.bootstrap-growl.min
 //= require bootstrap-notify
 //= require angular
 //= require angular-resource
