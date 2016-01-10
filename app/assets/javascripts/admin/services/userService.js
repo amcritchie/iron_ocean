@@ -17,6 +17,7 @@ function($q, httpService, form) {
     httpService.post('/users', form_data, function(res) {
       form.loading_finished($('#new_user_form'));
       if (res.status === 200) {
+        form.growl('success', 'User Created. <br>' + res.user.email);
         callback(res);
       } else {
         form.append_errors($('#new_user_form'), res.errors)
@@ -32,7 +33,7 @@ function($q, httpService, form) {
     httpService.put('/users/' + user.id, form_data, function(res) {
       form.loading_finished($('#edit_user_form'));
       if (res.status === 200) {
-        form.growl('success', 'User Updated.');
+        form.growl('success', 'User Updated. <br>' + user.email);
         callback(res);
       } else {
         form.append_errors($('#edit_user_form'), res.errors)
@@ -43,6 +44,7 @@ function($q, httpService, form) {
   this.activate = function(user, callback) {
     form.loading_begin($('#reactivate_user_form'));
     httpService.post('/users/' + user.id + '/reactivate' , {}, function(res) {
+      form.growl('success', 'User Reactivated. <br>' + user.email);
       form.loading_finished($('#reactivate_user_form'));
       callback(res);
     });
@@ -55,6 +57,7 @@ function($q, httpService, form) {
 
     form.loading_begin($('#deactivate_user_form'));
     httpService.post('/users/' + user.id + '/deactivate' , form_data, function(res) {
+      form.growl('success', 'User Deactivated. <br>' + user.email);
       form.loading_finished($('#deactivate_user_form'));
       callback(res);
     });
