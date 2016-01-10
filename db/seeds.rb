@@ -8,14 +8,20 @@ image: Rails.root.join("app/assets/images/seed_images/iron_dragon.png").open
 )
 admin_address = admin.addresses.create(street: Figaro.env.admin_street, zip: Figaro.env.admin_zip, phone: Figaro.env.admin_phone)
 Admin.create(user_id: admin.id, name: 'standard')
-admin_author = Author.create(user_id: admin.id, name: 'standard')
 
-urban_chef = Blog.create(name: "Urban Chef", slug: "urban_chef", active: true)
-angular_answers = Blog.create(name: "Angular Answers", slug: "angular_answers", active: true)
+urban_chef = Blog.create(
+name: "Urban Chef", slug: "urban_chef", active: true,
+image: Rails.root.join("app/assets/images/seed_images/iron_king.png").open)
+angular_answers = Blog.create(
+name: "Angular Answers", slug: "angular_answers", active: true,
+image: Rails.root.join("app/assets/images/seed_images/iron_heavy_horse.png").open)
 
-Article.create(active: true, author_id: admin_author.id, blog_id: angular_answers.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
-Article.create(active: true, author_id: admin_author.id, blog_id: angular_answers.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')
-Article.create(active: true, author_id: admin_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza')
+admin_urban_author = Author.create(user_id: admin.id, blog_id: urban_chef.id)
+admin_answers_author = Author.create(user_id: admin.id, blog_id: angular_answers.id)
+
+Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
+Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')
+Article.create(active: true, author_id: admin_answers_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza')
 
 alex = User.create(
 email: Figaro.env.user_email, password: Figaro.env.user_password, first_name: 'Alex',

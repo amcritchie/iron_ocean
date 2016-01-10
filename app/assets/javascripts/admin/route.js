@@ -23,8 +23,14 @@ admin_app.config(function ($stateProvider, $urlRouterProvider) {
   })
   .state('blogs', {
     url: '/blogs',
-    controller: 'AdminCtrl',
-    templateUrl: '/assets/admin/views/' + 'blogs/index.html'
+    controller: 'BlogsCtrl',
+    templateUrl: '/assets/admin/views/' + 'blogs/index.html',
+    resolve: {
+      blogsResponce: function(blogService) {
+        $('#loading-spinner').show();
+        return blogService.index()
+      }
+    }
   })
   .state('articles', {
     url: '/articles',

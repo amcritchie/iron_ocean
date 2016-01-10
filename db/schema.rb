@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20151224032804) do
 
   create_table "authors", force: true do |t|
     t.integer  "user_id"
-    t.string   "name"
+    t.integer  "blog_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151224032804) do
   create_table "blogs", force: true do |t|
     t.string   "name"
     t.string   "slug"
+    t.string   "image"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"

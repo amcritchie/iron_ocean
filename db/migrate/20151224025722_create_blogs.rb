@@ -3,6 +3,7 @@ class CreateBlogs < ActiveRecord::Migration
     create_table :blogs do |t|
       t.string :name
       t.string :slug
+      t.string :image
 
       t.boolean :active
 
