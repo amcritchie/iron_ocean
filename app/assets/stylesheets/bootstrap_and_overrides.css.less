@@ -27,3 +27,92 @@
 //
 // Example:
 // @link-color: #ff0000;
+
+
+@import "twitter/bootstrap/bootstrap";
+
+// Set the correct sprite paths
+@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
+@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: font-url("fontawesome-webfont.eot?#iefix");
+@fontAwesomeWoffPath: font-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
+
+// Font Awesome
+@import "fontawesome/font-awesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/glyphicons.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @link-color: #ff0000;
+
+// Removing underline link on hover.
+a:hover {
+  text-decoration: none;
+}
+
+// @brand-primary: #92A7E0;
+// @link-color: @brand-primary;
+// //@link-hover-color: darken(@link-color, 15%);
+// @link-hover-color: lighten(@link-color, 15%);
+//
+//
+// // Colors 1
+// @seahawk: #00295b;
+// @seahawk2: #006c9d;
+// @seahawk3: #003075;
+//
+// @col1: #94FFFC;
+// @col2: #94FFFC;
+// @col3: #466675;
+// @col4: #6A8D9D;
+// @col5: #CCCCCC;
+//
+// // @body-bg: @col5;
+// // @text-color: @col4;
+// @text-color: @seahawk3;
+// // @navbar-default-link-active-bg: @col5;
+
+// Primary Color Scheme
+@white: #ffffff;
+@black: #00171F;
+@blue1: #003459;
+@blue2: #007EA7;
+@blue3: #00A8E8;
+
+// Secondary Grey Scheme
+@grey1: #5D5E5E;
+@grey2: #CDCCCC;
+
+// Extra colors for buttons
+@red: #e84900;
+@green: #12B547;
+
+@text-color: @blue1;
+// @brand-primary: @blue2;
+// @link-color: @brand-primary;
+@link-color: @brand-primary;
+@link-hover-color: lighten(@link-color, 15%);
+
+
+// Button colors
+// @brand-info: @blue3;
+// @brand-info: #0bcfa8;
+@brand-info: #0083B5;
+@brand-primary: @blue3;
+
+@brand-danger: @red;
+@brand-success: @green;

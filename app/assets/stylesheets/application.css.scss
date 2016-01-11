@@ -15,11 +15,25 @@
 *= require_self
 */
 
-.green{background-color: green;}
-.blue{background-color: blue;}
-.yellow{background-color: yellow;}
-.red{background-color: red;}
-.orange{background-color: orange;}
+$white: #ffffff;
+$black: #00171F;
+$blue1: #003459;
+$blue2: #007EA7;
+$blue3: #00A8E8;
+
+// Secondary Grey Scheme
+$grey1: #5D5E5E;
+$grey2: #CDCCCC;
+
+// Extra colors for buttons
+$red: #e84900;
+$green: #12B547;
+
+.red{color: $red;}
+.blue{color: $blue3;}
+.green{color: $green;}
+.yellow{color: yellow;}
+.orange{color: orange;}
 
 // For user edit btn on index table on admin/#/users, this is used to shrink the edit button so rows arn't so tall.
 .vertical-padding-0{

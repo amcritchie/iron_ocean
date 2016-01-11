@@ -10,7 +10,7 @@
     <h1>Users</h1>
   </div>
   <div class="col-lg-3 col-md-2 col-sm-4 col-xs-6">
-    <a class="btn btn-success margin-top-20 pull-right" ng-click="new()" data-toggle="modal" data-target="#new_user_modal">New User</a>
+    <a class="btn btn-primary margin-top-20 pull-right" ng-click="new()" data-toggle="modal" data-target="#new_user_modal">New User</a>
   </div>
   <div class="col-xs-12 visible-xs">
     <form class="default pull-right" role="search">
@@ -46,19 +46,19 @@
         <tr ng-repeat='user in users | filter:search'>
           <td>
             {{user.id}} {{user.first_name}} {{user.last_name}}
-            <span ng-if="user.admin" style="color: #5cb85c">Admin</span>
+            <span ng-if="user.admin" class="green">Admin</span>
             <img class="pull-left visible-sm" height="40" width="40" ng-src="{{user.image.url}}">
 
             <br>
             {{user.email}}
             <span class="vertical-padding-0">
-              <i ng-if="user.email_confirmed" class="fa fa-check-circle-o" style="color: #5cb85c;"></i>
-              <i ng-if="!user.email_confirmed" class="fa fa-times-circle-o" style="color: #d9534f;"></i>
+              <i ng-if="user.email_confirmed" class="fa fa-check-circle-o green"></i>
+              <i ng-if="!user.email_confirmed" class="fa fa-times-circle-o red"></i>
             </span>
           </td>
           <td>
             <div class="pull-right visible-sm">
-              <a class="btn btn-info font-18 width-60" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
+              <a class="btn btn-primary font-18 width-60" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="user.active" class="btn btn-success font-18 width-60" ng-click="target(user)" data-toggle="modal" data-target="#deactivate_user_modal">
@@ -69,7 +69,7 @@
               </a>
             </div>
             <div class="pull-right visible-xs">
-              <a class="btn btn-info font-18 width-40" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
+              <a class="btn btn-primary font-18 width-40" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="user.active" class="btn btn-success font-18 width-40" ng-click="target(user)" data-toggle="modal" data-target="#deactivate_user_modal">
@@ -104,18 +104,18 @@
           <td>
             <img height="20" width="20" ng-src="{{user.image.url}}">
             {{user.first_name}} {{user.last_name}}
-            <span ng-if="user.admin" style="color: #5cb85c">Admin</span>
+            <span ng-if="user.admin" class="green">Admin</span>
           </td>
           <td>
             {{user.email}}
             <span class="vertical-padding-0">
-              <i ng-if="user.email_confirmed" class="fa fa-check-circle-o" style="color: #5cb85c;"></i>
-              <i ng-if="!user.email_confirmed" class="fa fa-times-circle-o" style="color: #d9534f;"></i>
+              <i ng-if="user.email_confirmed" class="fa fa-check-circle-o green"></i>
+              <i ng-if="!user.email_confirmed" class="fa fa-times-circle-o red"></i>
             </span>
           </td>
           <td>
             <div class="pull-right">
-              <a class="btn btn-info width-60 vertical-padding-0" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
+              <a class="btn btn-primary width-60 vertical-padding-0" ng-click="target(user)" data-toggle="modal" data-target="#edit_user_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="user.active" class="btn btn-success width-60 vertical-padding-0" ng-click="target(user)" data-toggle="modal" data-target="#deactivate_user_modal">

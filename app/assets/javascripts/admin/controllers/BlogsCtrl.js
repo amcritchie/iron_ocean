@@ -26,10 +26,10 @@ function($scope, $resource, blogService, sharedService, blogsResponce) {
   //   })
   // }
   //
-  // $scope.target = function(user){
-  //   $scope.user = user;
-  //   $scope.user.message = "";
-  // }
+  $scope.target = function(blog){
+    $scope.blog = blog;
+    // $scope.blog.message = "";
+  }
   //
   // $scope.activate = function(user){
   //   userService.activate(user, function(res) {
