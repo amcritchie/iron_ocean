@@ -8,7 +8,7 @@
     <h1>Blogs</h1>
   </div>
   <div class="col-lg-3 col-md-2 col-sm-4 col-xs-6">
-    <a class="btn btn-success margin-top-20 pull-right" ng-click="new()" data-toggle="modal" data-target="#new_blog_modal">New Blog</a>
+    <a class="btn btn-primary margin-top-20 pull-right" ng-click="new()" data-toggle="modal" data-target="#new_blog_modal">New Blog</a>
   </div>
   <div class="col-xs-12 visible-xs">
     <form class="default pull-right" role="search">
@@ -49,14 +49,10 @@
 
             <br>
             {{blog.slug}}
-            <span class="vertical-padding-0">
-              <i ng-if="blog.email_confirmed" class="fa fa-check-circle-o" style="color: #5cb85c;"></i>
-              <i ng-if="!blog.email_confirmed" class="fa fa-times-circle-o" style="color: #d9534f;"></i>
-            </span>
           </td>
           <td>
             <div class="pull-right visible-sm">
-              <a class="btn btn-info font-18 width-60" ng-click="target(blog)" data-toggle="modal" data-target="#edit_blog_modal">
+              <a class="btn btn-primary font-18 width-60" ng-click="target(blog)" data-toggle="modal" data-target="#edit_blog_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="blog.active" class="btn btn-success font-18 width-60" ng-click="target(blog)" data-toggle="modal" data-target="#deactivate_blog_modal">
@@ -67,7 +63,7 @@
               </a>
             </div>
             <div class="pull-right visible-xs">
-              <a class="btn btn-info font-18 width-40" ng-click="target(blog)" data-toggle="modal" data-target="#edit_blog_modal">
+              <a class="btn btn-primary font-18 width-40" ng-click="target(blog)" data-toggle="modal" data-target="#edit_blog_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="blog.active" class="btn btn-success font-18 width-40" ng-click="target(blog)" data-toggle="modal" data-target="#deactivate_blog_modal">
@@ -106,14 +102,10 @@
           </td>
           <td>
             {{blog.slug}}
-            <span class="vertical-padding-0">
-              <i ng-if="blog.email_confirmed" class="fa fa-check-circle-o" style="color: #5cb85c;"></i>
-              <i ng-if="!blog.email_confirmed" class="fa fa-times-circle-o" style="color: #d9534f;"></i>
-            </span>
           </td>
           <td>
             <div class="pull-right">
-              <a class="btn btn-info width-60 vertical-padding-0" ng-click="target(blog)" data-toggle="modal" data-target="#edit_blog_modal">
+              <a class="btn btn-primary width-60 vertical-padding-0" ng-click="target(blog)" data-toggle="modal" data-target="#edit_blog_modal">
                 <i class="fa fa-pencil-square-o fa-1x standard-view"></i><i class="fa fa-spinner fa-spin fa-1x waiting-view"></i>
               </a>
               <a ng-if="blog.active" class="btn btn-success width-60 vertical-padding-0" ng-click="target(blog)" data-toggle="modal" data-target="#deactivate_blog_modal">
