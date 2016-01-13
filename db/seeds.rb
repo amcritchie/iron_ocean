@@ -16,8 +16,8 @@ angular_answers = Blog.create(
 name: "Angular Answers", slug: "angular_answers", active: true,
 image: Rails.root.join("app/assets/images/seed_images/iron_heavy_horse.png").open)
 
-admin_urban_author = Author.create(user_id: admin.id, blog_id: urban_chef.id)
-admin_answers_author = Author.create(user_id: admin.id, blog_id: angular_answers.id)
+admin_urban_author = Author.create(user_id: admin.id, name: 'writer')
+admin_answers_author = Author.create(user_id: admin.id, name: 'editor')
 
 Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
 Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')

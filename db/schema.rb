@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20151224032804) do
   end
 
   create_table "authors", force: true do |t|
+    t.string   "name"
     t.integer  "user_id"
-    t.integer  "blog_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
