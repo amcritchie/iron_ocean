@@ -13,7 +13,7 @@
             <a data-target="#edit_blog_details" data-toggle="tab">Blog</a>
           </li>
           <li>
-            <a data-target="#edit_blog_address" data-toggle="tab">Authors</a>
+            <a data-target="#edit_blog_articles" data-toggle="tab">Articles</a>
           </li>
         </ul>
 
@@ -25,12 +25,12 @@
               <!-- {{blog.slug}} -->
               <!-- fdsf -->
             </div>
-            <div class="tab-pane" id="edit_blog_address">
+            <div class="tab-pane" id="edit_blog_articles">
               <!-- {{blog.authors}} -->
               <!-- <div class="col-xs-12"> -->
 
-              <ul class="list-group" ng-repeat='author in blog.authors'>
-                <div ng-include="'/assets/admin/views/blogs/blog_authors.html'"></div>
+              <ul class="list-group" ng-repeat='article in blog.articles'>
+                <div ng-include="'/assets/admin/views/blogs/blog_articles.html'"></div>
               </ul>
 
             <!-- </div> -->
@@ -42,6 +42,7 @@
                   <div ng-include="'/assets/admin/views/blogs/blog_authors.html'"></div>
                 </li>
               </ul> -->
+
 
               <!-- <div ng-include="'/assets/admin/views/users/user_address.html'"></div> -->
             </div>

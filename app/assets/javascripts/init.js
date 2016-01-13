@@ -1,5 +1,5 @@
 var iron_ocean_app = angular.module('IronOcean', ['ui.router'])
-var admin_app = angular.module('Admin', ['ui.router', 'ngResource'])
+var admin_app = angular.module('Admin', ['ui.router', 'ngResource', 'ngSanitize'])
 var blog_app = angular.module('Blogs', ['ui.router'])
 
 var planocore_domain

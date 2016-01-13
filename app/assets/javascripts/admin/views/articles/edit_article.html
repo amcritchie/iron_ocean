@@ -1,0 +1,49 @@
+<div class="container">
+
+  <!-- Blog Header -->
+  <div class="col-md-6 col-sm-6 col-xs-6">
+    <h1>{{article.title}}</h1>
+  </div>
+  <div class="col-lg-3 col-md-2 col-sm-2 col-xs-6">
+    {{article.slug}}
+    <a class="btn btn-primary margin-top-20 pull-right" ng-click="view()" data-toggle="modal" data-target="#new_blog_modal">View</a>
+  </div>
+  <div class="col-xs-12 visible-xs">
+    <!-- <form class="default pull-right" role="search">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Search Blogs" autofocus ng-model="search">
+      </div>
+    </form> -->
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-5 hidden-xs">
+    <form class="default margin-top-20 pull-right" role="search">
+      <!-- <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Search Blogs" autofocus ng-model="search">
+      </div>
+    </form> -->
+  </div>
+
+  <!-- Blog Index - Mobile and Tablet layout -->
+  <div class="visible-xs visible-sm col-xs-12">
+    Small
+    {{article.body}}
+  </div>
+
+  <!-- Blog Index - Monitor layout -->
+  <div class="visible-md visible-lg col-md-12">
+    Medium/Large
+    {{article.body}}
+    <!-- <p ng-bind-html="article.body"></p>
+    <div ng-bind-html="thisCanBeusedInsideNgBindHtml"></div> -->
+    <!-- <p ng-bind-html="myHTML"></p> -->
+
+
+
+  </div>
+</div>

@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   resources :sessions
   resources :users
-  resources :blogs
+  # resources :blogs
+  resources :blogs do
+    resources :articles
+  end
   post "users/:id/reactivate" => "users#reactivate"
   post "users/:id/deactivate" => "users#deactivate"
 

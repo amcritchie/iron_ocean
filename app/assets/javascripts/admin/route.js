@@ -32,6 +32,33 @@ admin_app.config(function ($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  .state('article', {
+    url: '/blog/:blog_id/article/:id/edit',
+    controller: 'ArticlesCtrl',
+    templateUrl: '/assets/admin/views/' + 'articles/edit_article.html',
+    // templateUrl: view_path + 'users/edit.html',
+    resolve: {
+      blogsResponce: function(httpService, $stateParams){
+        // return Planocore.http('/user/read', $stateParams.id);
+        // return Planocore.http('/blogs/' + $stateParams.blog_id + '/articles/' + $stateParams.id, $stateParams.id);
+
+        // debugger;
+        return httpService.get('/blogs/' + $stateParams.blog_id + '/articles/' + $stateParams.id + '/edit',
+         {}, function(res) {
+          // debugger;
+          return res
+          // form.loading_finished($('#new_blog_form'));
+          if (res.status === 200) {
+
+            // form.growl('success', 'Blog Created. <br>' + res.blog.email);
+            callback(res);
+          } else {
+            // form.append_errors($('#new_blog_form'), res.errors)
+          }
+        });
+      }
+    }
+  })
   .state('articles', {
     url: '/articles',
     controller: 'AdminCtrl',

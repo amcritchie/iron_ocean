@@ -21,7 +21,8 @@ admin_answers_author = Author.create(user_id: admin.id, name: 'editor')
 
 Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
 Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')
-Article.create(active: true, author_id: admin_answers_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza')
+Article.create(active: true, author_id: admin_answers_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza',
+body: "<div><p>By a frozen pizza</p></div><div><p>Heat up your grill</p></div><div><p>Pop in the pizza.</p></div>")
 
 alex = User.create(
 email: Figaro.env.user_email, password: Figaro.env.user_password, first_name: 'Alex',

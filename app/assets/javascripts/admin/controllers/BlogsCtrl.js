@@ -12,6 +12,7 @@ function($scope, $resource, blogService, sharedService, blogsResponce) {
     $scope.blog = {}
   }
 
+
   // $scope.create = function(user){
   //   userService.create(function(res) {
   //     $('.modal').modal('hide');

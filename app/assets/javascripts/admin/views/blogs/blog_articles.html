@@ -10,7 +10,11 @@
     <input class="form-control" type="file" fileread="blog.image" ng-model="blog.image" name="blog[image]"> -->
     <li class="list-group-item">
       <!-- <div class="col-xs-12"> -->
-        {{author.email}}
+        <!-- {{article}} -->
+        <!-- {{article.title}} -->
+        <li ui-sref-active="actiffve"><a ui-sref="article({id: article.id, blog_id: blog.id})">{{article.title}}</a></li>
+
+        <!-- {{article.slug}} -->
 
 
       <!-- </div> -->

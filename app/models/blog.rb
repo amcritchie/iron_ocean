@@ -8,7 +8,7 @@ class Blog < ActiveRecord::Base
 
   def index
     hash = self.as_json
-    hash[:authors] = self.users
+    hash[:articles] = self.articles.as_json
     hash
   end
 end
