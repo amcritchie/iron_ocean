@@ -39,17 +39,14 @@ admin_app.config(function ($stateProvider, $urlRouterProvider) {
     // templateUrl: view_path + 'users/edit.html',
     resolve: {
       blogsResponce: function(httpService, $stateParams){
-        // return Planocore.http('/user/read', $stateParams.id);
-        // return Planocore.http('/blogs/' + $stateParams.blog_id + '/articles/' + $stateParams.id, $stateParams.id);
 
-        // debugger;
+        // Link to the article doesn't remove modal backdrop
+        $('.modal-backdrop').remove();
+
         return httpService.get('/blogs/' + $stateParams.blog_id + '/articles/' + $stateParams.id + '/edit',
          {}, function(res) {
-          // debugger;
           return res
-          // form.loading_finished($('#new_blog_form'));
           if (res.status === 200) {
-
             // form.growl('success', 'Blog Created. <br>' + res.blog.email);
             callback(res);
           } else {

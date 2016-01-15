@@ -1,12 +1,27 @@
-admin_app.service('blogService', ['$q', 'httpService', 'form',
+admin_app.service('articleService', ['$q', 'httpService', 'form',
 function($q, httpService, form) {
 
-  this.index = function() {
-    var defer = $q.defer();
-    return httpService.get('/blogs', {}, function(res) {
-      defer.resolve(res);
-    });
-    return defer.promise;
+  // this.index = function() {
+  //   var defer = $q.defer();
+  //   return httpService.get('/blogs', {}, function(res) {
+  //     defer.resolve(res);
+  //   });
+  //   return defer.promise;
+  // }
+
+  user_id = $stateParams.id
+
+
+  this.read = function($stateParams) {
+    // debugger;
+    return httpService.http_g('/blogs/' + $stateParams.blog_id + '/articles/' + $stateParams.id + '/edit')
+    //  {}, function(res) {
+    //    callback();
+    //  });
+    // http.planocore('/user/create', null, $('[ng-submit="create()"]'), function(res) {
+    //   console.log('User created.');
+    //   callback();
+    // });
   }
 
   this.create =function(callback) {

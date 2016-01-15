@@ -5,14 +5,16 @@
 <li class="list-group-item">Porta ac consectetur ac</li>
 <li class="list-group-item">Vestibulum at eros</li> -->
 <fieldset>
-  <div class="form-group col-xs-12">
+  <div class="form-grodup col-xs-12">
     <!-- <label for="image">Image:</label>
     <input class="form-control" type="file" fileread="blog.image" ng-model="blog.image" name="blog[image]"> -->
     <li class="list-group-item">
       <!-- <div class="col-xs-12"> -->
         <!-- {{article}} -->
         <!-- {{article.title}} -->
-        <li ui-sref-active="actiffve"><a ui-sref="article({id: article.id, blog_id: blog.id})">{{article.title}}</a></li>
+        <!-- <li ui-sref-active="actiffve"> -->
+          <a  ui-sref="article({id: article.id, blog_id: blog.id})">{{article.title}}</a>
+        <!-- </li> -->
 
         <!-- {{article.slug}} -->
 
