@@ -10,9 +10,9 @@ function($scope, $resource, $sce, blogService, sharedService, blogsResponce) {
   //
   // $scope.thisCanBeusedInsideNgBindHtml = $sce.trustAsHtml(someHtmlVar);
 
-  $scope.myHTML =
-     'I am an <code>HTML</code>string with ' +
-     '<a href="#">links!</a> and other <em>stuff</em>';
+  // $scope.myHTML =
+  //    'I am an <code>HTML</code>string with ' +
+  //    '<a href="#">links!</a> and other <em>stuff</em>';
   // var Blog = $resource('/blogs/:id', {id: this.id}, {'update': {method: 'PUT'}});
   //
   // $('#loading-spinner').hide();
@@ -58,5 +58,32 @@ function($scope, $resource, $sce, blogService, sharedService, blogsResponce) {
   //     $scope.user.active = false;
   //   })
   // }
+
+  function enableTab(id) {
+    var el = document.getElementById(id);
+    el.onkeydown = function(e) {
+      if (e.keyCode === 9) { // tab was pressed
+
+        // get caret position/selection
+        var val = this.value,
+        start = this.selectionStart,
+        end = this.selectionEnd;
+
+        // set textarea value to: text before caret + tab + text after caret
+        this.value = val.substring(0, start) + '\t' + val.substring(end);
+
+        // put caret at right position again
+        this.selectionStart = this.selectionEnd = start + 1;
+
+        // prevent the focus lose
+        return false;
+
+      }
+    };
+  }
+
+  // Enable the tab character onkeypress (onkeydown) inside textarea...
+  // ... for a textarea that has an `id="my-textarea"`
+  enableTab('article_html');
 
 }]);

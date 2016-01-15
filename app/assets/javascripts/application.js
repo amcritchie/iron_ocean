@@ -18,6 +18,7 @@
 //= require angular
 //= require angular-resource
 //= require angular-ui-router
+//= require angular-sanitize
 //= require init
 //= require turbolinks
 //= require_tree .

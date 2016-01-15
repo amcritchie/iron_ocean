@@ -19,11 +19,6 @@ image: Rails.root.join("app/assets/images/seed_images/iron_heavy_horse.png").ope
 admin_urban_author = Author.create(user_id: admin.id, name: 'writer')
 admin_answers_author = Author.create(user_id: admin.id, name: 'editor')
 
-Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
-Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')
-Article.create(active: true, author_id: admin_answers_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza',
-body: "<div><p>By a frozen pizza</p></div><div><p>Heat up your grill</p></div><div><p>Pop in the pizza.</p></div>")
-
 alex = User.create(
 email: Figaro.env.user_email, password: Figaro.env.user_password, first_name: 'Alex',
 last_name: 'McRitchie', email_confirmed: false, active: true, last_active: nil, time_zone: 'mst',
@@ -66,3 +61,17 @@ body: "About 3 years now.  How about you?", unread: false)
 
 Message.create( sender_id: patrick.id, receiver_id: alex.id, title: "RE RE RE RE REHi, how is it going",
 body: "This is my first winter.", unread: false)
+
+Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Angularjs ui-router Firing Twice', slug: 'angular_js_ui_router_firing_twice')
+Article.create(active: true, author_id: admin_urban_author.id, blog_id: angular_answers.id, title: 'Using .try() in Rails', slug: 'using_try_in_rails')
+Article.create(active: true, author_id: admin_answers_author.id, blog_id: urban_chef.id, title: 'BBQ Frozen Pizza', slug: 'bbq_frozen_pizza',
+body:
+"<div>
+\t<p>By a frozen pizza</p>
+</div>
+<div>
+\t<p>Heat up your grill</p>
+</div>
+<div>
+\t<p>Pop in the pizza.</p>
+</div>")

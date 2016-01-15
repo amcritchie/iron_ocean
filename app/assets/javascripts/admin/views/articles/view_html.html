@@ -1,0 +1,29 @@
+<div id="view_article_html" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <form id="edit_blog_form" ng-submit="create(blog)" role="form">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Blog</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="tab-content">
+
+            <p ng-bind-html="article.body"></p>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <!-- <input type="submit" value="Update" class="standard-view btn btn-primary">
+          <a class="waiting-view btn btn-primary">
+            <i class="fa fa-spinner fa-spin fa-1x"></i>
+          </a> -->
+          <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
