@@ -1,15 +1,17 @@
-<h1>New Session</h1>
+<div class="container">
+  <h1>New Session</h1>
 
-<%= form_for(:user, url: login_path) do |f| %>
-  <div>
+  <%= form_for(:user, url: login_path) do |f| %>
+  <div class="form-group">
     email
-      <%= f.email_field :email, class: 'form-control' %>
+    <%= f.email_field :email, class: 'form-control' %>
   </div>
-  <div>
+  <div class="form-group">
     password
-      <%= f.password_field :password, class: 'form-control' %>
+    <%= f.password_field :password, class: 'form-control' %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.submit "log in", class: "btn btn-primary"  %>
   </div>
-<% end %>
+  <% end %>
+</div>
