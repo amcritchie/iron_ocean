@@ -1,0 +1,59 @@
+<!-- <div ng-app="Blogs">
+  <h1>Blogs Landing</h1>
+  <h3>Before UI View</h3>
+  <div ui-view></div>
+  <h3>After UI View</h3>
+</div> -->
+
+<div ng-app="Blogs">
+
+  <div id="loading-spinner" class="wrap">
+    <div class="margin-top-100">
+      <i class="fa fa-spinner fa-spin fa-5x"></i>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar header navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a ui-sref="index" class="navbar-brand">
+          <img height="20px" src="assets/iron_ocean_admin.png"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="header_navbar">
+        <ul class="nav navbar-nav left-nav">
+          <li ui-sref-active="active"><a ui-sref="users">Users</a></li>
+          <li ui-sref-active="active"><a ui-sref="blogs">Iron</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <% if current_user %>
+            <%= link_to "Log Out", session_path("current"), method: "delete" %>
+            <% else %>
+            <%= link_to "Login", new_session_path %>
+            <% end %>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right default" role="search">
+          <div class="input-group width-260">
+            <span class="input-group-addon">
+              <i class="fa fa-search"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="Search Admin" autofocus>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <h1>Admin Landing</h1>
+  <h3>Before UI View</h3>
+  <div ui-view></div>
+  <h3>After UI View</h3>
+</div>
