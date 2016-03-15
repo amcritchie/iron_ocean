@@ -1,8 +1,15 @@
-admin_app.controller('ArticlesCtrl', ['$scope', '$resource', '$sce', 'blogService', 'sharedService', 'blogsResponce',
-function($scope, $resource, $sce, blogService, sharedService, blogsResponce) {
+admin_app.controller('ArticlesCtrl', ['$scope', '$resource', '$sce', 'articleService', 'sharedService', 'blogsResponce',
+function($scope, $resource, $sce, articleService, sharedService, blogsResponce) {
   $('#loading-spinner').hide();
 
   $scope.article = blogsResponce.data.article;
+
+  $scope.update = function(article){
+    articleService.update(article, function(res) {
+      sharedService.update_resource(res.article, $scope.article)
+      $('.modal').modal('hide');
+    })
+  }
 
   // var someHtmlVar = blogsResponce.data.article.body;
   // var someHtmlVar = "<h1>Header</h1>";

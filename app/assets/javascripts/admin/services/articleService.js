@@ -9,20 +9,20 @@ function($q, httpService, form) {
   //   return defer.promise;
   // }
 
-  user_id = $stateParams.id
+  // user_id = $stateParams.id
 
 
-  this.read = function($stateParams) {
-    // debugger;
-    return httpService.http_g('/blogs/' + $stateParams.blog_id + '/articles/' + $stateParams.id + '/edit')
-    //  {}, function(res) {
-    //    callback();
-    //  });
-    // http.planocore('/user/create', null, $('[ng-submit="create()"]'), function(res) {
-    //   console.log('User created.');
-    //   callback();
-    // });
-  }
+  // this.read = function($stateParams) {
+  //   // debugger;
+  //   return httpService.http_g('/blogs/' + $stateParams.blog_id + '/articles/' + $stateParams.id + '/edit')
+  //   //  {}, function(res) {
+  //   //    callback();
+  //   //  });
+  //   // http.planocore('/user/create', null, $('[ng-submit="create()"]'), function(res) {
+  //   //   console.log('User created.');
+  //   //   callback();
+  //   // });
+  // }
 
   this.create =function(callback) {
 
@@ -40,15 +40,14 @@ function($q, httpService, form) {
     });
   }
 
-  this.update =function(blog, callback) {
+  this.update =function(article, callback) {
 
-    form.loading_begin($('#edit_blog_form'));
-    var form_data = new FormData($('#edit_blog_form')[0]);
-
-    httpService.put('/blogs/' + blog.id, form_data, function(res) {
+    form.loading_begin($('#edit_article_form'));
+    var form_data = new FormData($('#edit_article_form')[0]);
+    httpService.put('/articles/' + article.id, form_data, function(res) {
       form.loading_finished($('#edit_blog_form'));
       if (res.status === 200) {
-        form.growl('success', 'Blog Updated. <br>' + blog.email);
+        form.growl('success', 'Article Updated. <br>' + article.title);
         callback(res);
       } else {
         form.append_errors($('#edit_blog_form'), res.errors)

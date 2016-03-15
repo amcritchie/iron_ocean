@@ -10,16 +10,17 @@ Rails.application.routes.draw do
   resources :users
 
   # resources :blogs
+  resources :articles
 
-  # resources :blogs do
-  #   resources :articles
-  # end
+  resources :blogs do
+    resources :articles
+  end
 
   post "users/:id/reactivate" => "users#reactivate"
   post "users/:id/deactivate" => "users#deactivate"
 
   # match '', to: 'blogs#landing', constraints: {subdomain: 'blog'}
-  get '', to: 'blogs#index', constraints: {subdomain: 'blog'}, as: :blogs
+  # get '', to: 'blogs#index', constraints: {subdomain: 'blog'}, as: :blogs
   get '', to: 'admin#index', constraints: {subdomain: 'admin'}, as: :admin
 
   # You can have the root of your site routed with "root"

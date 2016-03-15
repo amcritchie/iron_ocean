@@ -1,13 +1,17 @@
 <div ng-include="'/assets/admin/views/articles/view_html.html'"></div>
 
 <div class="container">
+  <form id="edit_article_form" ng-submit="update(article)" role="form">
 
-  <!-- Blog Header -->
+
+  <!-- Article Header -->
   <div class="col-md-6 col-sm-6 col-xs-6">
     <h1>{{article.title}}</h1>
   </div>
   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
     {{article.slug}}
+    <!-- <a class="btn btn-success margin-top-20 pull-right" ng-click="update()">Update</a> -->
+    <input class="btn btn-success margin-top-20 pull-right" type="submit" value="Update">
     <a class="btn btn-primary margin-top-20 pull-right" data-toggle="modal" data-target="#view_article_html">View</a>
   </div>
   <div class="col-xs-12 visible-xs">
@@ -21,7 +25,7 @@
     </form> -->
   </div>
   <div class="col-lg-3 col-md-4 col-sm-5 hidden-xs">
-    <form class="default margin-top-20 pull-right" role="search">
+    <!-- <form class="default margin-top-20 pull-right" role="search"> -->
       <!-- <div class="input-group">
         <span class="input-group-addon">
           <i class="fa fa-search"></i>
@@ -43,6 +47,7 @@
     <!-- <a class="btn btn-primary width-60 vertical-padding-0" data-toggle="modal" data-target="#view_article_html"> Open </a> -->
 
     <!-- <p ng-bind-html="article.body"></p> -->
-    <textarea id="article_html" ng-model="article.body" style="width: 100%; height: 600px;" class="form-control"></textarea>
+    <textarea id="article_html" name="article[body]" ng-model="article.body" style="width: 100%; height: 600px;" class="form-control"></textarea>
   </div>
+  </form>
 </div>
